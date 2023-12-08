@@ -1,4 +1,4 @@
-let share = document.querySelector('.article-preview .info .bottom .share');
+let share = document.querySelector('.article-preview .info .bottom .share .icon');
 let popup = document.querySelector('.article-preview .info .bottom .share .popup');
 let svg = document.querySelector('svg.share-svg path');
 
