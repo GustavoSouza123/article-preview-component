@@ -49,6 +49,7 @@ body {
     height: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    object-fit: cover;
 }
 
 .article-preview .info {
@@ -64,11 +65,19 @@ body {
     font-size: 20px;
     font-weight: 700;
     color: var(--dark1);
+    margin-bottom: -20px;
 }
 
 .article-preview .info .subtitle {
     font-size: 13px;
     color: var(--dark2);
+    line-height: 20px;
+    word-spacing: 1px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    white-space: pre-wrap;
 }
 
 .article-preview .info .bottom {
@@ -84,6 +93,7 @@ body {
 .article-preview .info .bottom .author .image {
     width: 40px;
     height: 40px;
+    margin-right: 5px;
 }
 
 .article-preview > .info .bottom .author .image img {
@@ -104,10 +114,6 @@ body {
 .article-preview .info .bottom .author .author-info .creation-date {
     color: var(--gray);
     font-size: 13px;
-}
-
-.article-preview .info .bottom .share {
-    
 }
 
 .article-preview .info .bottom .share .icon {
@@ -132,6 +138,7 @@ body {
 .article-preview .info .bottom .share .popup {
     position: absolute;
     bottom: 100px;
+    right: calc(-125px - (-125px / 2) - 6px);
     display: none;
     align-items: center;
     justify-content: space-between;
@@ -141,7 +148,6 @@ body {
     border-radius: 10px;
     box-shadow: 15px 15px 30px 0px var(--transparent);
     padding: 0 35px;
-    margin-right: 2px;
     cursor: text;
     opacity: 0;
     transition: .2s;
@@ -154,6 +160,14 @@ body {
 
 .article-preview .info .bottom .share .popup img {
     cursor: pointer;
+}
+
+.article-preview .info .bottom .share .popup img.hidden {
+    display: none;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
 }
 
 .article-preview .info .bottom .share .popup::after {
@@ -182,13 +196,14 @@ body {
 footer {
     position: absolute;
     bottom: 0;
-    padding: 20px 0;
+    padding: 20px 50px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 375px) {
     .article-preview {
         width: 85%;
-        height: 55vh;
+        height: 500px;
         flex-direction: column;
     }
 
@@ -215,11 +230,6 @@ footer {
         font-size: 16px;
     }
 
-    .article-preview .info .subtitle {
-        margin-bottom: 40px;
-    }
-
-
     .article-preview .info .bottom .share .icon {
         width: 35px;
         height: 35px;
@@ -229,11 +239,12 @@ footer {
         right: 0;
         bottom: 0;
         width: 100%;
+        height: 80px;
         border-radius: 0;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         margin: 0;
-        height: 75px;
+        padding: 0 30px;
 
         /* display: none;
         align-items: center;
@@ -250,6 +261,10 @@ footer {
         transition: .2s; */
     }
     
+    .article-preview .info .bottom .share .popup img.hidden {
+        display: block;
+    }
+
     .article-preview .info .bottom .share .popup::after {
         display: none;
     }
