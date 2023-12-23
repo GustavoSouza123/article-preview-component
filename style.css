@@ -27,12 +27,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 20px;
 }
 
 .article-preview {
     position: relative;
     width: 750px;
-    height: 270px;
+    max-width: 100%;
+    min-height: 270px;
     background-color: var(--light2);
     border-radius: 10px;
     display: flex;
@@ -65,7 +67,12 @@ body {
     font-size: 20px;
     font-weight: 700;
     color: var(--dark1);
-    margin-bottom: -20px;
+    margin-bottom: -10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    white-space: pre-wrap;
 }
 
 .article-preview .info .subtitle {
@@ -73,9 +80,10 @@ body {
     color: var(--dark2);
     line-height: 20px;
     word-spacing: 1px;
+    margin: 10px 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     overflow: hidden;
     white-space: pre-wrap;
 }
@@ -174,7 +182,7 @@ body {
     content: '';
     position: absolute;
     top: 45px;
-    left: 115px;
+    left: 117px;
     width: 20px;
     height: 20px;
     background-color: var(--dark1);
@@ -200,7 +208,21 @@ footer {
     text-align: center;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 950px) {
+    .article-preview .info .bottom .share .popup {
+        right: 20px;
+    }
+
+    .article-preview .info .bottom .share .popup::after {
+        left: calc(250px - 20px - 25px);
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .container {
+            padding: 0;
+    }
+    
     .article-preview {
         width: 85%;
         height: 500px;
@@ -228,6 +250,12 @@ footer {
 
     .article-preview .info .title {
         font-size: 16px;
+        margin-bottom: -20px;
+    }
+
+    .article-preview .info .subtitle {
+        margin: 0;
+        -webkit-line-clamp: 5;
     }
 
     .article-preview .info .bottom .share .icon {
@@ -245,20 +273,6 @@ footer {
         border-bottom-right-radius: 10px;
         margin: 0;
         padding: 0 30px;
-
-        /* display: none;
-        align-items: center;
-        justify-content: space-between;
-        width: 250px;
-        height: 55px;
-        background-color: var(--dark1);
-        border-radius: 10px;
-        box-shadow: 15px 15px 30px 0px var(--transparent);
-        padding: 0 35px;
-        margin-right: 2px;
-        cursor: text;
-        opacity: 0;
-        transition: .2s; */
     }
     
     .article-preview .info .bottom .share .popup img.hidden {
